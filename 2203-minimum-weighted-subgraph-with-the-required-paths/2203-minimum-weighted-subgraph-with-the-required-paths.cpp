@@ -31,27 +31,6 @@ public:
         
     }
     
-    
-// 	vector<ll> dijkstra(vector<vector<pair<int, ll>>>& adj, int src) {
-// 		int n = adj.size();
-// 		vector<ll> dist(n, kInf);
-// 		dist[src] = 0;
-// 		priority_queue<pair<ll, int>, vector<pair<ll, int>>, greater<pair<ll, int>>> pq;
-// 		// pq contains pairs of <the current distance estimate from src to id, id>
-// 		pq.push(make_pair(0, src));
-// 		while (!pq.empty()) {
-// 			auto [d, cur] = pq.top(); pq.pop();
-// 			if (d != dist[cur]) continue;
-// 			for (auto [nei, w] : adj[cur]) {
-// 				if (dist[nei] > d + w) {
-// 					dist[nei] = d + w;
-// 					pq.push(make_pair(dist[nei], nei));
-// 				}
-// 			}
-// 		}
-// 		return dist;
-// 	}
-    
     long long minimumWeight(int n, vector<vector<int>>& edges, int src1, int src2, int dest) {
         vector<vector<pair<int, ll>>> adj(n);
 		vector<vector<pair<int, ll>>> rev(n);  // the graph with reversed edges
@@ -60,6 +39,7 @@ public:
 			int u = e[0];
             int v = e[1];
             int w = e[2];
+            
 			adj[u].push_back(make_pair(v, w));
 			rev[v].push_back(make_pair(u, w));
 		}
