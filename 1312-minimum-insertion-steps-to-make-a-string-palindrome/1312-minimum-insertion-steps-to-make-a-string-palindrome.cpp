@@ -22,11 +22,12 @@ public:
         return t[n][m];
         
     }
-    int longestCommonSubsequence(string text1, string text2) {
+    
+    int lps(string text1, string text2) {
         int n = text1.length();
         int m = text2.length();
-        
         memset(t, -1, sizeof(t));
+        
         return lcs(text1, text2, n, m);
     }
     
@@ -34,6 +35,6 @@ public:
         string t = s;
         reverse(t.begin(), t.end());
         
-        return s.size() - longestCommonSubsequence(s, t);
+        return s.size() - lps(s, t);
     }
 };
